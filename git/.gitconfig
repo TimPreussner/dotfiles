@@ -1,0 +1,9 @@
+[user]
+  name = Tim Preussner
+  email = tim.preussner@protonmail.com
+[core]
+  editor = nano
+[init]
+  defaultBranch = main
+[pull]
+  rebase = true
