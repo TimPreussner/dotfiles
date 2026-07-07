@@ -6,6 +6,8 @@ STOW     := stow --dir=$(STOW_DIR) --target=$(TARGET)
 
 # discover packages in the stow directory
 PACKAGES := $(shell find $(STOW_DIR) -mindepth 1 -maxdepth 1 -type d ! -name '.*' -printf '%f\n' | sort)
+LINUX_PACKAGES := zsh git
+MACOS_PACKAGES := zsh zsh-macos git
 
 .PHONY: all clean help install-all uninstall-all list
 
@@ -22,6 +24,26 @@ uninstall-all:
 	@for pkg in $(PACKAGES); do \
 		make uninstall-$$pkg || exit 1; \
 	done
+
+install-linux:
+	@for pkg in $(LINUX_PACKAGES); do \
+  		make install-$$pkg || exit 1; \
+  	done
+
+uninstall-linux:
+	@for pkg in $(LINUX_PACKAGES); do \
+  		make uninstall-$$pkg || exit 1; \
+  	done
+
+install-macos:
+	@for pkg in $(MACOS_PACKAGES); do \
+  		make install-$$pkg || exit 1; \
+  	done
+
+uninstall-macos:
+	@for pkg in $(MACOS_PACKAGES); do \
+  		make uninstall-$$pkg || exit 1; \
+  	done
 
 install-%:
 	@echo "Installing $* into $(TARGET)..."
