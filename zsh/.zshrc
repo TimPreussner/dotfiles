@@ -32,8 +32,3 @@ source $ZSH/oh-my-zsh.sh
 # use nano as default editor
 export VISUAL='nano'
 export EDITOR='nano'
-
-# homebrew settings
-export HOMEBREW_NO_ANALYTICS=1
-export HOMEBREW_CASK_OPTS=--require-sha
-export HOMEBREW_NO_INSECURE_REDIRECT=1

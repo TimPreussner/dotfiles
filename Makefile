@@ -46,7 +46,7 @@ uninstall-macos:
   	done
 
 install-%:
-	@echo "Installing $* into $(TARGET)..."
+	@echo "Installing $* into $(TARGET) ..."
 	@# first we remove all existing files that would prevent us from stowing
 	@find $(STOW_DIR)$* -type f | while read src; do \
 		dest=$(TARGET)/$${src#$(STOW_DIR)$*/}; \
@@ -61,7 +61,7 @@ install-%:
 	@echo "Done."
 
 uninstall-%:
-	@echo "Uninstalling $* from $(TARGET)..."
+	@echo "Uninstalling $* from $(TARGET) ..."
 	$(STOW) --delete $*
 	@echo "Done."
 
